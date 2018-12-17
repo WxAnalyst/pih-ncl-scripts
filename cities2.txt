@@ -1,0 +1,21 @@
+42.87,-112.47,Pocatello
+43.48,-112.03,Idaho Falls
+43.90,-113.60,Mackay
+42.09,-111.87,Preston
+42.53,-113.79,Burley
+43.51,-114.30,Hailey
+43.63,-113.30,Arco
+42.75,-113.49,Minidoka
+43.83,-111.81,Rexburg
+44.52,-111.32,Island Park
+44.51,-114.22,Challis
+44.21,-114.94,Stanley
+42.72,-114.45,Jerome
+42.31,-113.37,Malta
+42.45,-114.47,Twin Falls
+45.178,-113.903,Salmon
+45.216,-112.634,Dillon
+43.725,-111.106,Driggs
+42.658,-111.596,Soda Springs
+44.174,-112.232,Dubois
+42.945,-115.466,Hammett

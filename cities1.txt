@@ -1,0 +1,32 @@
+42.875,-112.447,Pocatello
+43.500,-112.033,Idaho Falls
+44.500,-111.339,Island Park
+44.217,-114.938,Stanley
+43.681,-114.372,Ketchum
+43.137,-115.694,Mountain Home
+43.617,-116.200,Boise
+45.216,-112.634,Dillon
+42.320,-111.304,Montpelier
+41.738,-111.831,Logan
+41.981,-114.665,Jackpot
+45.178,-113.903,Salmon
+40.736,-114.033,Wendover
+40.750,-111.883,Salt Lake City
+44.775,-117.834,Baker
+44.911,-116.103,McCall
+42.583,-114.467,Twin Falls
+43.725,-111.106,Driggs
+40.833,-115.767,Elko
+40.968,-117.727,Winnemucca
+41.263,-110.965,Evanston
+41.789,-110.546,Kemmerer
+45.678,-111.047,Bozeman
+45.917,-116.117,Grangeville
+47.659,-117.425,Spokane
+46.863,-114.012,Missoula
+47.504,-111.286,Great Falls
+46.065,-118.330,Walla Walla
+46.596,-112.027,Helena
+48.198,-114.316,Kalispell
+44.523,-109.057,Cody
+42.838,-117.629,Rome
