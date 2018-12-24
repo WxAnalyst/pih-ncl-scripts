@@ -5,4 +5,6 @@ to reflect the location of your WRF NetCDF output files and domain, etc.
 
 - cities1.txt : Lat, Lon, City Name -- that is, if you want to plot cities on your maps
 - cities2.txt: Same as above, but for inner domain (if you have one)
-- test.ncl : Script will produce surface temperature graphics from WRF output. 
+- temp.ncl : Script will produce surface temperature graphics from WRF output.
+- slp.ncl : MSLP/Precip Wind plots. 
+- pressure.ncl : Height/Winds/RH at various pressure levels.
