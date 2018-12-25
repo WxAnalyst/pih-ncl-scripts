@@ -1,18 +1,18 @@
-; Generic template for producing WRF graphics.
-; Read CSV file of cities with "City","Lat","Lon"
-; Plot WRF variable
-;	Plot cities on map
-;	Plot value under city
+; Plots MSLP, Precip, and Winds
 
 begin
 ; First, let's set some variables. This will dictate how our image files
-; are named. 
-	domain = "d02_"
-	domname = "ind_"
+; are named. File naming convention is similar to Dan Leins' GRaDS
+; scripts. If you're using Leins' web app to display images, you should
+; not have to do much re-configuring.
+	domain = "d01_"
+	domname = "pih_"
 	prod = "mslp"
+	directory=str_get_cols(domname,0,2)
 
-; Now, let's load some NetCDF files from our WRF.
-	dir = "/wrf/uems/runs/ind/wrfprd/"
+; Now, let's load some NetCDF files from our WRF. Change 'dir' to 
+; the location of your WRF output files.
+	dir = "/wrf/uems/runs/"+directory+"/wrfprd/"
         fils = systemfunc("ls "+dir+"wrfout_"+domain+"*")
 	a = addfiles(fils+".nc","r")
 
@@ -84,7 +84,7 @@ begin
   	do it = 0,ntimes-1 
 	  print("Working on time: " + times(it) )
 	  res@TimeLabel = times(it)   ; Set Valid time to use on plots
-	  its = sprintf("%02g",it)
+	  its = sprintf("%02g",it)    ; 2-digit forecast hour for file-naming
 
 ; Creating the workstation environment for the plot, define file name
 ; and select the colormap.
@@ -119,7 +119,8 @@ begin
     pcp@units = "inches"
     u10@description = "10m Wind"
     u10@units = "Knots"
-
+    cmap = read_colormap_file("precip2_17lev")
+    cmap(0,:) = (/0,0,0,0/)
 
 ; Moving label values closer to the color bar.
     res@lbLabelOffsetF = 0.05
@@ -130,15 +131,15 @@ begin
     opts@SubFieldTitle = "   Max: "+decimalPlaces(max(pcp),2,True)
     opts@Footer = False
     opts@cnFillOn = True
-    opts@cnFillPalette = "precip2_17lev"
+    opts@cnFillPalette = cmap
     contour_precip=wrf_contour(a[it],wks,pcp,opts)
     delete(opts)
 
 ; Plotting options for Terrain
     opts = res
     opts@cnFillOn = True
-    opts@ContourParameters = (/3000., 13000., 500./)
-    opts@cnFillPalette = "MPL_Greys"
+    opts@ContourParameters = (/0., 3000., 100./)
+    opts@cnFillPalette = "MPL_terrain"
     opts@lbLabelsOn = False
     opts@lbLabelBarOn = False
     opts@Footer = False
@@ -168,7 +169,7 @@ begin
     delete(opts)
 
 ; Time to overlay your plots onto the map.
-    plot = wrf_map_overlays(a[it],wks,(/contour_precip, contour_slp, vector/),pltres,mpres)
+    plot = wrf_map_overlays(a[it],wks,(/contour_terrain, contour_precip, contour_slp, vector/),pltres,mpres)
 
 ; Now we can plot cities on the map.
 ;    places = dimsizes(cities)   	; How many cities in our cities.txt file?

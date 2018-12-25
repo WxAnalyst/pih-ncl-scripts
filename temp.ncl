@@ -1,8 +1,8 @@
-; Generic template for producing WRF graphics.
+; This will plot 2m Temps.
 ; Read CSV file of cities with "City","Lat","Lon"
 ; Plot WRF variable
 ;	Plot cities on map
-;	Plot value under city
+;	Plot temp value under city
 
 begin
 ; First, let's set some variables. This will dictate how our image files
@@ -10,9 +10,10 @@ begin
 	domain = "d01_"
 	domname = "pih_"
 	prod = "temp"
+	directory = str_get_cols(domname,0,2)
 
 ; Now, let's load some NetCDF files from our WRF.
-	dir = "/wrf/uems/runs/pih/wrfprd/"
+	dir = "/wrf/uems/runs/"+directory+"/wrfprd/"
 	fils = systemfunc("ls "+dir+"wrfout_"+domain+"*")
 	a = addfiles(fils+".nc","r")
 

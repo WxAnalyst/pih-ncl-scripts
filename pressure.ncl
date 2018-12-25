@@ -12,12 +12,13 @@ begin
 
 	domain = "d01_"
 	domname = "pih_"
-	dir = "/wrf/uems/runs/pih/wrfprd/"
+	directory = str_get_cols(domname,0,2)
 
 ; Now, let's load some NetCDF files from our WRF
+	dir = "/wrf/uems/runs/"+directory+"/wrfprd/")
 	fils = systemfunc("ls "+dir+"wrfout_"+domain+"*")
 	a = addfiles(fils+".nc","r")
-
+	; Will add name later since this plots several levels.
 
 ; We generate plots, but what kind do we prefer?
 	type = "png"
@@ -78,14 +79,13 @@ begin
 ;	vort_plane = wrf_user_vert_interp(a,vort,"pressure",pressure_levels,opts)
 delete(opts)
 
-  spd     = (u_plane*u_plane + v_plane*v_plane)^(0.5) ; m/sec
+  spd = (u_plane*u_plane + v_plane*v_plane)^(0.5) ; m/sec
     spd@description = "Wind Speed"
     spd@units = "m/s"
   u_plane = u_plane*1.94386     ; kts
   v_plane = v_plane*1.94386     ; kts
     u_plane@units = "kts"
     v_plane@units = "kts"
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
