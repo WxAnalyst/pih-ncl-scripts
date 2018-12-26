@@ -8,3 +8,6 @@ to reflect the location of your WRF NetCDF output files and domain, etc.
 - temp.ncl : Script will produce surface temperature graphics from WRF output.
 - slp.ncl : MSLP/Precip Wind plots. 
 - pressure.ncl : Height/Winds/RH at various pressure levels.
+- snow.ncl : Snow from ACSNOW * SLR -- use with caution
+- radar.ncl : Model Composite reflectivity
+- cape.ncl : Model CAPE and CIN output
